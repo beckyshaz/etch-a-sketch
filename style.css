@@ -1,0 +1,31 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+.container {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+    height: 600px;
+    width: 600px;
+    background-color: black;
+}
+
+.items {
+
+    flex-shrink: 0;
+    flex-grow: 0;
+    
+}
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+}
