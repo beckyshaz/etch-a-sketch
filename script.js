@@ -98,11 +98,25 @@ const button = document.querySelector(".button");
 
 button.addEventListener("click", (event) => {
     
-    noOfItemsPerheight = prompt("Enter number of square 1-100");
+    noOfItemsPerheight = parseInt(prompt("Enter number of square per side 1-100"), 10);
 
     if (noOfItemsPerheight) {
-        createSquaredDivs(noOfItemsPerheight);
+        if (noOfItemsPerheight >= 1 && noOfItemsPerheight <= 100) {
+            createSquaredDivs(noOfItemsPerheight);
 
+        }
+        else {
+            const confirmed = confirm("Do you want to Enter number of square per side between 1 t0 100 ?");
+
+            if (confirmed) {
+                noOfItemsPerheight = parseInt(prompt("Enter number of square per side 1-100"), 10);
+                createSquaredDivs(noOfItemsPerheight);
+
+            }
+
+
+        }
+        
     }
     
 });
