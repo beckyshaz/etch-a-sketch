@@ -1,61 +1,108 @@
 
-let noOfItemsPerheight  = 16;
-const gap = 2; //gap value from css
-const containerSize = 600; // container size from width/height value
+function createSquaredDivs (noOfItemsPerheight = 16) {
+    
+    //noOfItemsPerheight  = parseInt(prompt("Enter number of square 1-100 "));
+    
+    const gap = 2; //gap value from css
 
-// Calculating space taken by the gaps out of the 500 width/height size
-const totalGapSpace = (noOfItemsPerheight - 1) * gap;
-
-// Calculating available space remaining for the squares 
-const availableSpaceForItems = containerSize - totalGapSpace;
-
-// Calculating the size of each square to fit the remaining space
-const itemDimension = `calc(${availableSpaceForItems}px / ${noOfItemsPerheight})`;
+    const containerSize = 600; // container size from width/height value
 
 
+    // Calculating space taken by the gaps out of the 500 width/height size
 
-count = 0;
-const container = document.querySelector(".container");
-//container.style.backgroundColor = ("green");
+    const totalGapSpace = (noOfItemsPerheight - 1) * gap;
 
-/*const divs = document.createElement("div");
-divs.style.backgroundColor = "blue";
-divs.style.height = "10px";
-divs.style.width = "10px";
-*/
-for (let i = 0; i < noOfItemsPerheight; i++) {
-    for (let j = 0; j < noOfItemsPerheight; j++) {
-        const divs = document.createElement("div");
-        divs.classList.add("items");
 
-        divs.style.backgroundColor = "blue";
-        //used these without removing the space taken by the gaps
+    // Calculating available space remaining for the squares 
+
+    const availableSpaceForItems = containerSize - totalGapSpace;
+
+
+    // Calculating the size of each square to fit the remaining space
+
+    const itemDimension = `calc(${availableSpaceForItems}px / ${noOfItemsPerheight})`;
+
+
+
+
+    count = 0;
+
+    const container = document.querySelector(".container");
+
+    container.innerHTML = "";
+
+    for (let i = 0; i < noOfItemsPerheight; i++) {
+    
+        for (let j = 0; j < noOfItemsPerheight; j++) {
         
-       // divs.style.height =  `calc( 500px / ${noOfItemsPerheight })`;
+            const divs = document.createElement("div");
         
-       // divs.style.flexBasis = `calc(500px / ${noOfItemsPerheight})`;
+            divs.classList.add("items");
 
-       divs.style.height = itemDimension;
+        
+            divs.style.backgroundColor = "blue";
+        
+            //used these without removing the space taken by the gaps
+        
+       
+            // divs.style.height =  `calc( 500px / ${noOfItemsPerheight })`;
+        
+       
+            // divs.style.flexBasis = `calc(500px / ${noOfItemsPerheight})`;
 
-       divs.style.flexBasis = itemDimension
+       
+            divs.style.height = itemDimension;
+
+       
+            divs.style.flexBasis = itemDimension;
+
+       
+
+       
+            divs.addEventListener("mousemove", () => {
+       
+                divs.style.backgroundColor = "green";
+
+       
+                /*when using a class whose style is defined in external
+       
+                stylesheet css
+       
+                divs.classList.add("colour");*/
+
+       
+            });
+
+
+       
+            container.appendChild(divs);
+       
+            count += 1;
+        
+            console.log(count);
+            
+    
+        }
+    
+
+    }
 
 
 
+}
 
-        container.appendChild(divs);
-        count += 1;
-        console.log(count);
 
- /*   for (let j = i + 1; j < 16; j++) {
-        const divs = document.createElement("div");
+createSquaredDivs();
 
-        divs.style.backgroundColor = "blue";
-        divs.style.height = "30px";
-        divs.style.width = "30px";
-        divs.style.margin = "2px";
+const button = document.querySelector(".button");
 
-        container.appendChild(divs);
-    }*/
+button.addEventListener("click", (event) => {
+    
+    noOfItemsPerheight = prompt("Enter number of square 1-100");
+
+    if (noOfItemsPerheight) {
+        createSquaredDivs(noOfItemsPerheight);
+
     }
     
-}
+});
