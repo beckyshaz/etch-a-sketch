@@ -1,3 +1,12 @@
+function getRandomRgbColor() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    console.log(`rgb(${r}, ${g}, ${b})`);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+//getRandomRgbColor();
+
 
 function createSquaredDivs (noOfItemsPerheight = 16) {
     
@@ -61,7 +70,7 @@ function createSquaredDivs (noOfItemsPerheight = 16) {
        
             divs.addEventListener("mousemove", () => {
        
-                divs.style.backgroundColor = "green";
+                divs.style.backgroundColor = getRandomRgbColor();
 
        
                 /*when using a class whose style is defined in external
