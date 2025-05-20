@@ -71,6 +71,7 @@ function createSquaredDivs (noOfItemsPerheight = 16) {
             divs.addEventListener("mousemove", () => {
        
                 divs.style.backgroundColor = getRandomRgbColor();
+                divs.style.opacity = 1;
 
        
                 /*when using a class whose style is defined in external
