@@ -83,8 +83,6 @@ function createSquaredDivs (noOfItemsPerheight = 16) {
        
             });
 
-
-       
             container.appendChild(divs);
        
             count += 1;
